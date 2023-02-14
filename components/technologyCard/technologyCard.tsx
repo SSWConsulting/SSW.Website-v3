@@ -3,7 +3,7 @@ import { VFC } from "react";
 import { BASE_URL } from "../util/constants";
 import { TechnologyCardProps } from "./technologyCardTypes";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styles from "./technologyCard.module.css";
 import classnames from "classnames";
 
@@ -22,15 +22,17 @@ const TechnologyCard: VFC<TechnologyCardProps> = ({
         ])}
         data-aos="flip-left"
       >
-        <figure>
-          {/* TODO: refactor with next/image */}
-          <Image
-            src={thumbnail || "/images/ssw-logo.svg"}
-            alt={thumbnail ? name : "SSW Consulting"}
-            width={295}
-            height={100}
-          ></Image>
-        </figure>
+        {
+          thumbnail &&
+          <figure className="relative h-24">
+            <Image
+              src={thumbnail || "/images/ssw-logo.svg"}
+              alt={thumbnail ? name : "SSW Consulting"}
+              fill
+              objectFit="contain"
+            ></Image>
+          </figure>
+        }
         <TinaMarkdown content={body} />
         {readMoreSlug && <Link href={BASE_URL + readMoreSlug}>Read More</Link>}
       </article>

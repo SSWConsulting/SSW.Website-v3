@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { Container } from "../util/container";
-import { SocialIcons, SocialTypes } from "../util/socialIcons";
 
 dayjs.extend(timezone);
 dayjs.extend(utc);
@@ -17,12 +16,6 @@ export const Footer = () => {
         <div className="flex flex-wrap items-center justify-center gap-6 sm:justify-between">
           <CopyrightInfo />
         </div>
-        <hr className="my-4 border-gray-800 sm:hidden"/>
-        <SocialIcons
-          className="my-6 justify-center sm:hidden"
-          excludeDesktop={Object.values(SocialTypes)}
-          excludeMobile={[SocialTypes.phone]}
-        />
         <hr className="my-4 border-gray-800"/>
         <div className="flex flex-wrap items-center justify-center gap-6 sm:justify-between">
           <DeploymentInfo />

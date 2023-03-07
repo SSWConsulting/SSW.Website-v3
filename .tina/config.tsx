@@ -324,6 +324,9 @@ const config = defineStaticConfig({
 					router: ({ document }) => {
 						return `/consulting/${document._sys.filename}`;
 					},
+					defaultItem: {
+						layout: "ConsultingPage",
+					},
 				},
 				fields: [
 					// @ts-ignore

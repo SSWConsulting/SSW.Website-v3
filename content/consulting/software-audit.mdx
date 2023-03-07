@@ -115,9 +115,17 @@ benefits:
 ## How long does this normally take?
 
 <TableLayout
-  mdxTable={<>
-    | Client time commitment | SSW time commitment   | \n|:----------------------|:------------------| \n| 8 hours                | 16 hours              | \n|  1- Initial meeting x- - Available for contact x- - Final presentation x-    | 1- Initial meeting with client x- - Present findings and documentation to client x- - Perform the Software Audit x- - Present findings and documentation to client x- |
-  </>}
+	tableStyle="basicBorder"
+  className="mt-5 flex justify-center descendant-tr:align-top descendant-ul:list-disc descendant-li:ml-6"
+  mdxTable="
+    | Client time commitment | SSW time commitment   |
+		|:-----------------------|:----------------------|
+		| 8 hours | 16 hours |
+		| - Initial meeting  | - Initial meeting with client | \
+		| - Available for contact  | - Perform the Software Audit | \
+		| - Final presentation  | - Prepare for final presentation | \
+		| | - Present findings and documentation to client |
+  "
 />
 
 ## SSW Software Audit Services can help in:

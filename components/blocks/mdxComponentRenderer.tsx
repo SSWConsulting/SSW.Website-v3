@@ -5,6 +5,7 @@ import { CustomImage } from "./customImage";
 import { VideoEmbed } from "./videoEmbed";
 import { ColumnLayout } from "./columnLayout";
 import { TableLayout } from "./tableLayout";
+import { AgreementForm } from "../consulting/agreementForm";
 
 export const componentRenderer: Components<{
 	ClientLogos: Record<string, never>;
@@ -28,11 +29,13 @@ export const componentRenderer: Components<{
 	TableLayout: {
 		mdxTable: string;
 	};
+	AgreementForm: Record<string, never>;
 }> = {
-	VideoEmbed: (props) => <VideoEmbed data={props} />,
+	AgreementForm: () => <AgreementForm />,
 	ClientLogos: () => <ClientLogos />,
+	ColumnLayout: (props) => <ColumnLayout data={props} />,
 	CustomImage: (props) => <CustomImage data={props} />,
 	UpcomingEvents: (props) => <UpcomingEvents data={props} />,
-	ColumnLayout: (props) => <ColumnLayout data={props} />,
 	TableLayout: (props) => <TableLayout data={props} />,
+	VideoEmbed: (props) => <VideoEmbed data={props} />,
 };

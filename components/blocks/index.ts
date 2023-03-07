@@ -11,21 +11,23 @@ import { customImageBlockSchema } from "./customImage";
 import { clientLogosBlockSchema } from "./clientLogos";
 import { videoEmbedBlockSchema } from "./videoEmbed";
 import { columnLayoutBlockSchema } from "./columnLayout";
-import { TableBlockSchema } from "./tableLayout";
+import { tableBlockSchema } from "./tableLayout";
+import { agreementFormBlockSchema } from "../consulting/agreementForm";
 
 export const pageBlocks: Template[] = [
-    aboutUsBlockSchema,
-    contentBlockSchema,
-    carouselBlockSchema,
-    serviceCardsBlockSchema,
-    heroBlockSchema,
-    upcomingEventsBlockSchema,
-    builtOnAzureBlockSchema,
-    customImageBlockSchema,
-    clientLogosBlockSchema,
-    columnLayoutBlockSchema,
-    videoEmbedBlockSchema,
-    TableBlockSchema
+	aboutUsBlockSchema,
+	agreementFormBlockSchema,
+	builtOnAzureBlockSchema,
+	carouselBlockSchema,
+	clientLogosBlockSchema,
+	columnLayoutBlockSchema,
+	contentBlockSchema,
+	customImageBlockSchema,
+	heroBlockSchema,
+	serviceCardsBlockSchema,
+	tableBlockSchema,
+	upcomingEventsBlockSchema,
+	videoEmbedBlockSchema,
 ];
 
 export * from "./aboutUs";
@@ -40,3 +42,4 @@ export * from "./clientLogos";
 export * from "./booking";
 export * from "./videoEmbed";
 export * from "./columnLayout";
+export * from "../consulting/agreementForm";

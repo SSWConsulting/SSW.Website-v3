@@ -12,20 +12,26 @@ import { clientLogosBlockSchema } from "./clientLogos";
 import { videoEmbedBlockSchema } from "./videoEmbed";
 import { columnLayoutBlockSchema } from "./columnLayout";
 import { TableBlockSchema } from "./tableLayout";
+import { sswTableBlockSchema } from "./tables/sswTable";
+import { citationBlockSchema } from "./citation";
+import { subButtonSchema } from "./subButton";
 
 export const pageBlocks: Template[] = [
-    aboutUsBlockSchema,
-    contentBlockSchema,
-    carouselBlockSchema,
-    serviceCardsBlockSchema,
-    heroBlockSchema,
-    upcomingEventsBlockSchema,
-    builtOnAzureBlockSchema,
-    customImageBlockSchema,
-    clientLogosBlockSchema,
-    columnLayoutBlockSchema,
-    videoEmbedBlockSchema,
-    TableBlockSchema
+	aboutUsBlockSchema,
+	contentBlockSchema,
+	carouselBlockSchema,
+	serviceCardsBlockSchema,
+	heroBlockSchema,
+	upcomingEventsBlockSchema,
+	builtOnAzureBlockSchema,
+	customImageBlockSchema,
+	clientLogosBlockSchema,
+	columnLayoutBlockSchema,
+	videoEmbedBlockSchema,
+	TableBlockSchema,
+	citationBlockSchema,
+	sswTableBlockSchema,
+	subButtonSchema,
 ];
 
 export * from "./aboutUs";
@@ -40,3 +46,6 @@ export * from "./clientLogos";
 export * from "./booking";
 export * from "./videoEmbed";
 export * from "./columnLayout";
+export * from "./citation";
+export * from "./tables/sswTable";
+export * from "./subButton";

@@ -1,0 +1,26 @@
+.newsletters h1 {
+	font-size: 2rem;
+	line-height: 1em;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	padding: 0;
+}
+
+.newsletters h2 {
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	margin-bottom: 15px;
+	margin-top: 8px !important;
+}
+
+.newsletters p {
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-word;
+	word-break: break-word;
+	margin: 0 0 10px;
+}

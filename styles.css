@@ -3,82 +3,82 @@
 @tailwind utilities;
 
 @layer base {
+	a:not(.unstyled) {
+		@apply underline transition duration-300 hover:border-sswRed hover:text-sswRed;
+	}
 
-  a:not(.unstyled) {
-    @apply underline transition duration-300 hover:border-sswRed hover:text-sswRed;
-  }
+	html,
+	body {
+		@apply scroll-smooth;
+	}
 
-  html,
-  body {
-    @apply scroll-smooth;
-  }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		@apply font-sans leading-tight;
+	}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply font-sans leading-tight;
-  }
+	h1 {
+		@apply my-4 pb-5 pt-15 text-4xl;
+	}
 
-  h1 {
-    @apply my-4 pb-5 pt-15 text-4xl;
-  }
+	h2 {
+		@apply mb-2.5 mt-10 text-3xl;
+	}
 
-  h2 {
-    @apply mb-2.5 mt-10 text-3xl;
-  }
+	h3 {
+		@apply mb-0.5 mt-2.5 text-2xl;
+	}
 
-  h3 {
-    @apply mb-0.5 mt-2.5 text-2xl;
-  }
+	h4 {
+		@apply text-xl;
+	}
 
-  h4 {
-    @apply text-xl;
-  }
+	h5 {
+		@apply text-lg;
+	}
 
-  h5 {
-    @apply text-lg;
-  }
+	h1 + h2 {
+		@apply !mt-5;
+	}
 
-  h1 + h2 {
-    @apply !mt-5;
-  }
+	small {
+		@apply text-xs;
+	}
 
-  small {
-    @apply text-xs;
-  }
-
-  figure {
-    @apply mb-4;
-  }
+	figure {
+		@apply mb-4;
+	}
 }
 
 @layer components {
-  @import "react-responsive-carousel/lib/styles/carousel.min.css";
-  @import "react-responsive-modal/styles.css";
-  @import "@fontsource/open-sans/300.css";
-  @import "aos/dist/aos.css";
+	@import "react-responsive-carousel/lib/styles/carousel.min.css";
+	@import "react-responsive-modal/styles.css";
+	@import "@fontsource/open-sans/300.css";
+	@import "aos/dist/aos.css";
 
-  .icon::before {
-    @apply inline-block;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-  }
+	.icon::before {
+		@apply inline-block;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+	}
 
-  a.done,
-  button.done {
-    @apply inline-block cursor-pointer select-none border-none bg-sswRed bg-done bg-no-repeat pr-[30px] text-sm font-normal uppercase leading-[18px] text-white no-underline !outline-sswRed hover:!bg-[#d76969] hover:!text-white;
-    background-position: 100%;
-  }
+	a.done,
+	button.done {
+		@apply inline-block cursor-pointer select-none border-none bg-sswRed bg-done bg-no-repeat pr-[30px] text-sm font-normal uppercase leading-[18px] text-white no-underline !outline-sswRed hover:!bg-[#d76969] hover:!text-white;
+		background-position: 100%;
+	}
 
-
-	.customTable table, th, td{
+	.customTable table,
+	.customTable th,
+	.customTable td {
 		border: 1px solid;
 		padding: 8px;
 	}
 
-	.customTable li{
+	.customTable li {
 		list-style-type: square;
 	}
 }

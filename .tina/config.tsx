@@ -602,6 +602,31 @@ const config = defineStaticConfig({
 					},
 				],
 			},
+			{
+				label: "Newsletters Page",
+				name: "newsletters",
+				format: "mdx",
+				path: "content/newsletters",
+				ui: {
+					global: true,
+				},
+				fields: [
+					// @ts-ignore
+					seoSchema,
+					{
+						type: "string",
+						name: "title",
+						label: "title",
+					},
+					{
+						type: "rich-text",
+						label: "Body",
+						name: "_body",
+						templates: [...Schemas.pageBlocks],
+						isBody: true,
+					},
+				],
+			},
 		],
 	},
 });

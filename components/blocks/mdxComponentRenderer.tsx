@@ -5,6 +5,8 @@ import { CustomImage } from "./customImage";
 import { VideoEmbed } from "./videoEmbed";
 import { ColumnLayout } from "./columnLayout";
 import { TableLayout } from "./tableLayout";
+import { SSWTable } from "./tables/sswTable";
+import { Citation } from "./citation";
 
 export const componentRenderer: Components<{
 	ClientLogos: Record<string, never>;
@@ -28,6 +30,38 @@ export const componentRenderer: Components<{
 	TableLayout: {
 		mdxTable: string;
 	};
+	SSWTable: {
+		title: string;
+		classNames: {
+			head: string;
+			body: string;
+			title: string;
+			container: string;
+		};
+		columns: Record<
+			number,
+			{
+				label: string;
+				key: string;
+				className: string;
+				align: string;
+			}
+		>;
+		data: Record<
+			number,
+			{
+				key: string;
+				value: string;
+				rowIndex: number;
+				type: string;
+				url: string;
+			}
+		>;
+	};
+	Citation: {
+		article: string;
+		author: string;
+	};
 }> = {
 	VideoEmbed: (props) => <VideoEmbed data={props} />,
 	ClientLogos: () => <ClientLogos />,
@@ -35,4 +69,6 @@ export const componentRenderer: Components<{
 	UpcomingEvents: (props) => <UpcomingEvents data={props} />,
 	ColumnLayout: (props) => <ColumnLayout data={props} />,
 	TableLayout: (props) => <TableLayout data={props} />,
+	SSWTable: (props) => <SSWTable {...props} />,
+	Citation: (props) => <Citation {...props} />,
 };

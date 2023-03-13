@@ -22,7 +22,7 @@ export default function HomePage(
         <Blocks prefix="PageBeforeBody" blocks={data.page.beforeBody} />
         <Container className={"flex-1 pt-4"}>
           <div className="gap-4 md:grid md:grid-cols-5 lg:grid-cols-5">
-            <div className="prose max-w-full md:col-span-3 lg:col-span-3">
+            <div className="max-w-full md:col-span-3 lg:col-span-3">
               <TinaMarkdown
                 components={componentRenderer}
                 content={data.page._body}

@@ -17,7 +17,7 @@
   "bookingButtonText": "Book a FREE Initial Meeting",
   "offices": [
     {
-      "url": "https://ssw.com.au/ssw/Company/Offices/Sydney",
+      "url": "/offices/sydney",
       "name": "SSW Sydney Office",
       "streetAddress": "Level 1, 81 - 91 Military Road",
       "suburb": "Neutral Bay",
@@ -69,6 +69,7 @@
       "days": "Monday - Friday"
     }
   ],
+  "bookingPhone": "+61 2 9953 3000", 
   "socials": [
     {
       "type": "phone",

@@ -38,7 +38,9 @@ export const Carousel = ({ data }) => {
           showStatus={false}
           stopOnHover={true}
           onClickItem={(x) => {
-            openItem(data.items[x]);
+            if (data.items[x].link) {
+              openItem(data.items[x]);
+            }
           }}
           renderIndicator={createCarouselIndicator}
         >

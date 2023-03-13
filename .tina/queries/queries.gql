@@ -12,6 +12,13 @@ query consultingContentQuery($relativePath: String!) {
   }
 }
 
+query officeContentQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  offices(relativePath: $relativePath) {
+    ...OfficesParts
+  }
+}
+
 query allTestimonialsQuery {
   testimonialsConnection {
     Testimonials: edges {

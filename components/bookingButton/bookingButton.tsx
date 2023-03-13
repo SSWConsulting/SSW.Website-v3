@@ -15,9 +15,7 @@ const BookingButton: FC<{
   const showBookingForm = () => setIsVisible(!isVisible);
 
   const bookingForm = <BookingForm recaptchaKey={recaptchaKey} />;
-  const sydneyOfficeLayoutData = layoutData.offices.find(
-    (o) => o.addressLocality === "Sydney"
-  );
+  const bookingPhone = layoutData.bookingPhone;
 
   return (
     <div
@@ -35,7 +33,7 @@ const BookingButton: FC<{
         {buttonText}
       </Button>
       <h2 className="mx-auto max-w-full text-center">
-        or call us on {sydneyOfficeLayoutData.phone}
+        or call us on {bookingPhone}
       </h2>
       <Popup
         isVisible={isVisible}

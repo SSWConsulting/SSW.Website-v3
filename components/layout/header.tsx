@@ -38,7 +38,7 @@ const Logo = () => {
     : "/images/ssw-logo.svg";
 
   return (
-    <h4 className="flex items-center justify-center">
+    <h4 className="flex items-center justify-center text-xl">
       <Link
         href="/"
         passHref

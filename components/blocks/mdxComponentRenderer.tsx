@@ -4,6 +4,7 @@ import { ClientLogos } from "./clientLogos";
 import { CustomImage } from "./customImage";
 import { VideoEmbed } from "./videoEmbed";
 import { ColumnLayout } from "./columnLayout";
+import { Carousel } from "./carousel";
 import { TableLayout } from "./tableLayout";
 
 export const componentRenderer: Components<{
@@ -25,6 +26,15 @@ export const componentRenderer: Components<{
 		src: string;
 		message: string;
 	};
+	Carousel: {
+		items: {
+			label: string;
+			link: string;
+			openIn: string;
+			imgSrc: string;
+		}[];
+		backgroundColor: string;
+	};
 	TableLayout: {
 		mdxTable: string;
 	};
@@ -34,5 +44,6 @@ export const componentRenderer: Components<{
 	CustomImage: (props) => <CustomImage data={props} />,
 	UpcomingEvents: (props) => <UpcomingEvents data={props} />,
 	ColumnLayout: (props) => <ColumnLayout data={props} />,
+	Carousel: (props) => <Carousel data={props} />,
 	TableLayout: (props) => <TableLayout data={props} />,
 };

@@ -4,75 +4,85 @@ import { useEffect, useRef, useState } from "react";
 import { LiveStreamBannerInfo } from "../../services";
 
 export type LiveStreamProps = {
-  countdownMins: number;
-  isLive: boolean;
-  event?: LiveStreamBannerInfo;
+	countdownMins: number;
+	liveStreamDelayMinutes: number;
+	isLive: boolean;
+	event?: LiveStreamBannerInfo;
 };
 
 export function useLiveStreamProps(intervalMinutes?: number): LiveStreamProps {
-  !intervalMinutes && (intervalMinutes = 1);
+	!intervalMinutes && (intervalMinutes = 1);
 
-  const [countdownMins, setCountdownMins] = useState<number>();
-  const [event, setEvent] = useState<LiveStreamBannerInfo>();
-  const [isLive, setIsLive] = useState(false);
+	const [countdownMins, setCountdownMins] = useState<number>();
+	const [event, setEvent] = useState<LiveStreamBannerInfo>();
+	const [isLive, setIsLive] = useState(false);
+	const [liveStreamDelayMinutes, setLiveStreamDelayMinutes] = useState(0);
 
-  const timer = useRef<NodeJS.Timer>();
-  const shouldCountdown = useRef<boolean>();
+	const timer = useRef<NodeJS.Timer>();
+	const shouldCountdown = useRef<boolean>();
 
-  useEffect(() => {
-    const fetchEvent = async () => {
-      const rightnow = dayjs().utc();
+	useEffect(() => {
+		const fetchEvent = async () => {
+			const rightnow = dayjs().utc();
 
-      if (
-        (!event && countdownMins === undefined) ||
-        (!!event && rightnow.isAfter(event.EndDateTime))
-      ) {
-        const res = await axios.get<LiveStreamBannerInfo[]>("/api/get-livestream-banner",{
-          params: { datetime: rightnow.toISOString() },
-        })
+			if (
+				(!event && countdownMins === undefined) ||
+				(!!event && rightnow.isAfter(event.EndDateTime))
+			) {
+				const res = await axios.get<LiveStreamBannerInfo[]>(
+					"/api/get-livestream-banner",
+					{
+						params: { datetime: rightnow.toISOString() },
+					}
+				);
 
-        if (res?.status !== 200 || !res.data.length) {
-          setIsLive(false);
-          setEvent(undefined);
-          shouldCountdown.current = false;
+				if (res?.status !== 200 || !res.data.length) {
+					setIsLive(false);
+					setEvent(undefined);
+					shouldCountdown.current = false;
 
-          return;
-        }
+					return;
+				}
 
-        const latestEvent = res.data[0];
-        setEvent(latestEvent);
+				const latestEvent = res.data[0];
+				setEvent(latestEvent);
 
-        const start = dayjs(latestEvent.StartDateTime);
-        setCountdownMins(start.diff(rightnow, "minute"));
+				const liveDelay = latestEvent.SSW_LiveStreamDelayMinutes ?? 0;
+				!liveStreamDelayMinutes &&
+					latestEvent.SSW_DelayedLiveStreamStart &&
+					setLiveStreamDelayMinutes(liveDelay);
+				const start = dayjs(latestEvent.StartDateTime).add(liveDelay, "minute");
+				setCountdownMins(start.diff(rightnow, "minute"));
 
-        shouldCountdown.current = true;
-      }
+				shouldCountdown.current = true;
+			}
 
-      setIsLive(
-        countdownMins <= 0 && !!event && rightnow.isBefore(event.EndDateTime)
-      );
-    };
+			setIsLive(
+				countdownMins <= 0 && !!event && rightnow.isBefore(event.EndDateTime)
+			);
+		};
 
-    fetchEvent();
-  }, [countdownMins]);
+		fetchEvent();
+	}, [countdownMins]);
 
-  useEffect(() => {
-    if (!timer.current) {
-      timer.current = setInterval(() => {
-        setCountdownMins((countdownMins) =>
-          shouldCountdown.current
-            ? countdownMins - intervalMinutes
-            : countdownMins
-        );
-      }, intervalMinutes * 60 * 1000 || 60000);
-    }
+	useEffect(() => {
+		if (!timer.current) {
+			timer.current = setInterval(() => {
+				setCountdownMins((countdownMins) =>
+					shouldCountdown.current
+						? countdownMins - intervalMinutes
+						: countdownMins
+				);
+			}, intervalMinutes * 60 * 1000 || 60000);
+		}
 
-    return () => clearInterval(timer.current);
-  }, [intervalMinutes]);
+		return () => clearInterval(timer.current);
+	}, [intervalMinutes]);
 
-  return {
-    countdownMins,
-    event,
-    isLive,
-  };
+	return {
+		countdownMins,
+		liveStreamDelayMinutes,
+		event,
+		isLive,
+	};
 }

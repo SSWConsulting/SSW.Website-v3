@@ -38,7 +38,7 @@ export default function OfficeIndex(
 								<span>
 									<h2 className="mt-0 text-sswRed">
 										{`${office.addressLocality} | ${office.addressCountry}`}{" "}
-										<Flag country="Australia" />
+										<Flag country={office.addressCountry} />
 									</h2>
 								</span>
 								{office.thumbnail ? (

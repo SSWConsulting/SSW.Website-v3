@@ -701,13 +701,11 @@ const config = defineStaticConfig({
 						type: "string",
 						name: "hours",
 						label: "Hours",
-						required: true,
 					},
 					{
 						type: "string",
 						name: "days",
 						label: "Days",
-						required: true,
 					},
 					{
 						type: "object",

@@ -81,4 +81,14 @@
 	.customTable li{
 		list-style-type: square;
 	}
+
+	.tech-widget.prose :where(.prose > ul > li > *:first-child):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.tech-widget.prose :where(li):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+    margin-bottom: 0;
+	}
 }

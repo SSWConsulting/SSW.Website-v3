@@ -109,6 +109,9 @@ module.exports = {
 			4: "4px",
 		},
 		extend: {
+			gridTemplateRows: {
+				"12": "repeat(12, minmax(min-content, 0fr))",
+			},
 			backgroundPosition: {
 				"right-bottom-4": "right 1rem bottom 1rem",
 			},

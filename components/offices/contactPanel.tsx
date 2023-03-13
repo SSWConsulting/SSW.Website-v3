@@ -9,6 +9,7 @@ const ContactPanel = ({
 	postalCode,
 	addressCountry,
 	sideImg,
+	sidebarSecondaryPlace,
 }) => {
 	return (
 		<>
@@ -36,8 +37,15 @@ const ContactPanel = ({
 			</p>
 
 			<p>
-				Learn more on{" "}
-				<a href={`https://sswchapel.com.au/${addressLocality}`}>SSW Chapel</a>
+				Learn more on
+				<a href={`https://sswchapel.com.au/${addressLocality}`}> SSW Chapel</a>
+				{!!sidebarSecondaryPlace && (
+					<>
+						{" "}
+						and{" "}
+						<a href={sidebarSecondaryPlace.url}>{sidebarSecondaryPlace.name}</a>
+					</>
+				)}
 			</p>
 
 			{sideImg ? (

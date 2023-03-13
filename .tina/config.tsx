@@ -710,6 +710,23 @@ const config = defineStaticConfig({
 						required: true,
 					},
 					{
+						type: "object",
+						name: "sidebarSecondaryPlace",
+						label: "Sidebar secondary place URL",
+						fields: [
+							{
+								type: "string",
+								name: "name",
+								label: "Name",
+							},
+							{
+								type: "string",
+								name: "url",
+								label: "URL",
+							},
+						],
+					},
+					{
 						type: "rich-text",
 						label: "About Us",
 						name: "aboutUs",

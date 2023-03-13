@@ -124,6 +124,7 @@ export default function OfficePage(
 								postalCode={data.offices.postalCode}
 								addressCountry={data.offices.addressCountry}
 								sideImg={data.offices.sideImg}
+                sidebarSecondaryPlace={data.offices.sidebarSecondaryPlace}
 							/>
 
 							<MicrosoftPanel />

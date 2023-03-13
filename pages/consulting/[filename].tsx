@@ -105,6 +105,7 @@ export default function ConsultingPage(
             <Container padding="px-4">
               <TechnologyCards
                 techHeader={data.consulting.technologies.header}
+                techSubheading={data.consulting.technologies.subheading}
                 techCards={techCards}
               />
             </Container>
